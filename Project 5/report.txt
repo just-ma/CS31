@@ -1,0 +1,38 @@
+Justin Ma
+604805167
+
+This project was one of the more difficult ones because I had to learn a lot of new syntax. I was unfamiliar with classes, so I had to learn what a class was, how to define it, and how to define the functions within it. I also had to learn the difference between .h files and .cpp files. For example, my code would not compile even though there was no error line within my code. Eventually, I realized it was due to #include “Date.cpp” and #include “ZodiacReader.cpp”. This defined the classes and functions multiples times. To fix this, I included the header files instead. Overall, the most notable obstacles dealt with syntax.
+
+Test cases:
+
+getMonth()
+	(6,17) - test for correctness
+	(0,17) - when month is outside range of 1 to 12
+
+getDay()
+	(6,17) - test for correctness
+	(6,35) - when day is outside range of 1 to 31
+
+checkSign()
+	(6,17) - test for correctness
+	(6,20) - when day is on the deadline of a sign
+	(6,21) - when day is on the start of a sign
+
+onCusp()
+	(6,17) - when day is not on cusp
+	(6,19) - when day is a day before the deadline of a sign
+	(6,20) - when day is on the deadline of a sign
+	(6,21) - when day is on the start of a sign
+	(6,22) - when day is a day after the start of a sign
+
+cuspSign()
+	(6,17) - when day is not on cusp
+	(6,19) - when day is a day before the deadline of a sign
+	(6,20) - when day is on the deadline of a sign
+	(6,21) - when day is on the start of a sign
+	(6,22) - when day is a day after the start of a sign
+	(3,21) - when cusp sign jumps back to the last one
+	(3,20) - when cusp sign jumps forward to the first one
+
+stringifySign()
+	(6,17) - test for correctness
