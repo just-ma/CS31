@@ -1,0 +1,69 @@
+1.)
+endlendl
+endline
+
+2.) It prints a picture of a line of hashtags leaning to the right.
+
+3.)
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int len;
+    
+    cout << "Enter a number: ";
+    cin >> len;
+    
+    for (int i = 0; i < len; i++)
+    {
+        int j=i+1;
+        while ( j < len)
+        {
+            cout <<" ";
+            j++;
+        }
+        cout << "#" << endl;
+    }
+}
+
+4.)
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int len;
+    int i=-1;
+    
+    cout << "Enter a number: ";
+    cin >> len;
+    
+    if (len <= 0)
+        return 0;
+    
+    do
+    {
+        i++;
+        int j=i+1;
+            while ( j < len)
+            {
+                cout <<" ";
+                j++;
+            }
+        cout << "#" << endl;
+    }while (i<len-1);
+}
+
+5.)
+switch(weekday)
+    {
+        case 1: cout<<"rainy days and mondays get me down";
+            return 0;
+        case 2: cout<<"ruby tuesday";
+            return 0;
+        case 6: cout<<"wonderful weekend";
+            return 0;
+        case 7: cout<<"wonderful weekend";
+            return 0;
+        default: cout<<"regular day";

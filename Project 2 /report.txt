@@ -1,0 +1,53 @@
+Justin Ma
+604805167
+
+a)
+	The first problem I encountered was not being able to include spaces into strings with cin. The input only includes characters up until a space or new line. Thus, when entering one’s name, it would only receive the first name. To resolve this, I used the getline() function which takes everything up until a new line.
+
+	Another problem was getting the program to stop when an input was erroneous. At, first, if there was an error, the program would cout an error message but would keep going to the next input. To prevent this, I added return 1 after every error message, so the program would stop running.
+
+To prevent people would entering a non positive number into miles or minutes, I implemented an if statement that weeded out 0’s and negative numbers. 
+
+	To prevent people from entering a blank name, I used an if statement that said if (name == “”) produce an error message and stop the code.
+
+
+b)
+	To test when one does not input a name; The name should not be blank, so we should expect an error when the name is blank. This scenario produced the correct response.
+
+(Name:, Miles: 27, Minutes: 27, Ride: Br-UberXL)
+
+	To test when one inputs a name with a space; The space should be included in the name printed out at the end. This scenario produced the correct response.
+
+(Name: Justin Ma, Miles: 27, Minutes: 27, Ride: Br-UberXL)
+
+	To test inputting 0, a negative number, or a nonnumerical character into miles/minutes; The number of miles/minutes must be positive, so we should expect an error when one or both inputs are 0’s, negatives, or not numbers. All scenarios below produced the correct response.
+
+(Name: Justin Ma, Miles: 0, Minutes: 27, Ride: Br-UberXL) 
+(Name: Justin Ma, Miles: 27, Minutes: 0, Ride: Br-UberXL)
+(Name: Justin Ma, Miles: 0, Minutes: 0, Ride: Br-UberXL)
+(Name: Justin Ma, Miles: -27, Minutes: 27, Ride: Br-UberXL) 
+(Name: Justin Ma, Miles: 27, Minutes: -27, Ride: Br-UberXL)
+(Name: Justin Ma, Miles: -27, Minutes: -27, Ride: Br-UberXL)
+(Name: Justin Ma, Miles: a 90, Minutes: 27, Ride: Br-UberXL) 
+(Name: Justin Ma, Miles: 27, Minutes: d, Ride: Br-UberXL)
+(Name: Justin Ma, Miles: g7 89, Minutes: -27, Ride: Br-UberXL) 
+
+	To test inputting nothing into miles/minutes; The number of miles/minutes must be positive, so we should expect an error when one or both inputs empty. However, instead of producing an error, hitting enter only creates a new line. Enter is useless until any character is put down.
+
+(Name: Justin Ma, Miles: , Minutes: 27, Ride: Br-UberXL) 
+(Name: Justin Ma, Miles: 27, Minutes: , Ride: Br-UberXL)
+(Name: Justin Ma, Miles: , Minutes: , Ride: Br-UberXL)
+
+	To test inputting anything other than “Br-UberX” or “Br-UberXL” into ride; We should expect an error when the input is wrong. All scenarios (misspelled, number, empty) below produced the correct response.
+
+(Name: Justin Ma, Miles: 27, Minutes: 27, Ride: Br-UberL) 
+(Name: Justin Ma, Miles: 27, Minutes: 27, Ride: 23)
+(Name: Justin Ma, Miles: 27, Minutes: 27, Ride: )
+
+	To test when the minimum fare is not reached; We should expect the fare to be the minimum fare depending on the ride type, if the fare is below it. All scenarios below produced the correct response.
+
+(Name: Justin Ma, Miles: 1, Minutes: 1, Ride: Br-UberXL) 
+(Name: Justin Ma, Miles: 1, Minutes: 1, Ride: Br-UberX)
+
+
+

@@ -1,0 +1,115 @@
+Justin Ma
+604805167
+
+The most difficult part of this project was understanding the skeleton code. We all have different ways for approaching a problem, and my method was different from the code. I had to learn each why each part was where it was and its function. After looking at the code for a while, I got comfortable with it, and the rest was not difficult. One specific obstacle was figuring out why my code printed out “The game is tied” at the very beginning. I realized that the isGameOver function should only be active after the 6th round. Another problem I had was counting up the number of rounds won by the human and computer. I wanted to implement an private integer that would count up each time a round was won; however, I had to go through the array and count that.
+
+Test cases: 
+
+Die d;
+    for (int i = 1; i <= 100; i++) // 100 rolls
+    {
+        d.roll();
+        int value = d.getValue();
+        assert( value >=1 && value <= 6 ); // TEST if each roll produces a number between 1 and 6
+    }
+    
+    Player p;
+    assert( p.getScore() == 0 ); // TEST if the starting score is 0
+    p.setRound( 1 );
+    assert( p.getScore() == 0 ); //TEST if the starting score is 0 after setting the round
+    assert( p.roll( 6 ) == 6 ); //TEST if a cheated roll produces the number entered
+    assert( p.getScore() == 0 ); //TEST if rolling a wrong number will keep the score
+    p.roll( 1 );
+    assert( p.getScore() == 1 ); //TEST if rolling the right number will increase the score one point
+    p.setRound( 6 );
+    assert( p.getScore() == 0 ); //TEST if setting the round resets the score to 0
+    
+    Bunco b;
+    b.setRound( 1 );
+    assert( b.determineRoundOutcome() == Bunco::NOTDECIDED ); //TEST if the starting round outcome is NOTDECIDED
+    b.computerPlay( 5 );
+    b.humanPlay( 4 );
+    assert( b.determineRoundOutcome() == Bunco::NOTDECIDED ); // TEST if both players roll the wrong number, the round outcome is still NOTDECIDED
+    b.computerPlay( 1 );
+    b.humanPlay( 1 );
+    assert( b.determineRoundOutcome() == Bunco::NOTDECIDED ); //TEST if both players roll the right number, the round outcome is still NOTDECIDED
+    b.computerPlay( 1 );
+    b.humanPlay( 2 );
+    assert( b.determineRoundOutcome() == Bunco::COMPUTERWON ); //TEST if only computer rolls the right number, the round outcome will be COMPUTERWON
+    b.setRound( 2 );
+    b.computerPlay( 1 );
+    b.humanPlay( 2 );
+    assert( b.determineRoundOutcome() == Bunco::HUMANWON ); //TEST if only human rolls the right number, the round outcome will be HUMANWON
+    b.setRound( 3 );
+    b.computerPlay( 1 );
+    b.humanPlay( 3 );
+    b.determineRoundOutcome();
+    b.setRound( 4 );
+    b.computerPlay( 1 );
+    b.humanPlay( 4 );
+    b.determineRoundOutcome();
+    b.setRound( 5 );
+    assert( b.gameIsOver() == false); // TEST if the game is not over yet
+    b.computerPlay( 1 );
+    b.humanPlay( 5 );
+    b.determineRoundOutcome();
+    b.setRound( 6 );
+    b.computerPlay( 6 );
+    b.humanPlay( 2 );
+    b.determineRoundOutcome();
+    assert( b.gameIsOver() == true); // TEST if the game is over
+    assert( b.determineGameOutcome() == Bunco::HUMANWONGAME); //TEST if human wins more rounds, human wins
+    
+    Bunco c;
+    c.setRound( 1 );
+    c.computerPlay( 1 );
+    c.humanPlay( 5 );
+    c.determineRoundOutcome();
+    c.setRound( 2 );
+    c.computerPlay( 2 );
+    c.humanPlay( 5 );
+    c.determineRoundOutcome();
+    c.setRound( 3 );
+    c.computerPlay( 3 );
+    c.humanPlay( 5 );
+    c.determineRoundOutcome();
+    c.setRound( 4 );
+    c.computerPlay( 4 );
+    c.humanPlay( 1 );
+    c.determineRoundOutcome();
+    c.setRound( 5 );
+    c.computerPlay( 5 );
+    c.humanPlay( 4 );
+    c.determineRoundOutcome();
+    c.setRound( 6 );
+    c.computerPlay( 3 );
+    c.humanPlay( 6 );
+    c.determineRoundOutcome();
+    assert( c.determineGameOutcome() == Bunco::COMPUTERWONGAME); //TEST if computer wins more rounds, it wins
+    
+    Bunco e;
+    e.setRound( 1 );
+    e.computerPlay( 1 );
+    e.humanPlay( 4 );
+    e.determineRoundOutcome();
+    e.setRound( 2 );
+    e.computerPlay( 3 );
+    e.humanPlay( 2 );
+    e.determineRoundOutcome();
+    e.setRound( 3 );
+    e.computerPlay( 3 );
+    e.humanPlay( 4 );
+    e.determineRoundOutcome();
+    e.setRound( 4 );
+    e.computerPlay( 3 );
+    e.humanPlay( 4 );
+    e.determineRoundOutcome();
+    e.setRound( 5 );
+    e.computerPlay( 5 );
+    e.humanPlay( 4 );
+    e.determineRoundOutcome();
+    e.setRound( 6 );
+    e.computerPlay( 3 );
+    e.humanPlay( 6 );
+    e.determineRoundOutcome();
+    assert( e.determineGameOutcome() == Bunco::TIEDGAME); //TEST if computer and human win same number of rounds, the game is tied

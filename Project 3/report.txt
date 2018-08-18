@@ -1,0 +1,86 @@
+Justin Ma
+604805167
+
+The length of each individual string varies depending on the airline number and minutes. This meant I needed variables that measured these lengths which was a difficult task. The whole onTimeArrivalPercentage function had to be a loop that looped through each individual string. I learned that I needed a variable that increased with each loop. I didn't have much experience with making loops, so I had to master that skill when completing this project. One specific obstacle was converting characters to integers. When trying to figure out whether a flight is late or not, I needed to know if the minutes were greater than 14 minutes or not. This problem was solved in discussion when my TA told us to subtract the character by ‘0’. Another obstacle was detecting the small bugs I wouldn't notice the first time through. Things like if the string was missing a ‘-‘ or ‘+’, or missing a minutes value. There were a lot of rules in the validity of the code which made the number of possible holes much larger.
+
+create boolean function called wellFormed that takes in a command
+	if the length of the command is 0
+		return false
+	loop while inside the command
+		if the beginning two letters are not aa, dl, ua, sw, al, nor va (caps or not)
+			return false
+		if the next character is 0
+			pass over it
+		if there are over 3 consecutive positive integers 
+			return false
+		pass over the numbers
+		if the next character is not - nor +
+			return false
+		pass over the - or +
+		if the next character is 0
+			pass over it
+		if there are over 3 consecutive positive integers
+			return false
+		pass over the numbers
+	return true
+create boolean function called arrivalPercentage that takes in a command and a code
+	if the command returns false from the wellFormed function 
+		return -1
+	if the code is greater than 2 characters
+		return -1
+	if the code is not aa, dl, ua, sw, al, nor va (caps or not)
+		return -1
+	loop while inside the command
+		while the first consecutive characters don't equal the code (caps or not)
+			skip to the next position in the command
+		while the character doesn't equal + nor -
+			skip to the next character
+		if character is -
+			add 1 to an integer called denominator
+			add 1 to an integer called numerator
+		else
+			determine the number after the + or - and before the next code
+			if the number is 15 or greater
+				add 1 to denominator
+			else 
+				add 1 to the denominator
+				add 1 to the numerator
+	if denominator is 0
+		return 0
+	else
+		round output to one decimal place
+		return numerator divided by denominator
+create a integer function
+	input a command
+	input a code
+	output result of command and code inside arrivalPercentage function
+
+Test for:
+
+Blank command (“”, “aa”)
+Blank airline code (“aa89-9”, “”)
+Space as command (“ “, “aa”)
+Space as airline code (“aa89-9”, “ “)
+Invalid airline code in command (“gg89-9”, “aa")
+Extra character in airline code in command (“aaa89-9”, “aa”)
+Missing character in airline code in command (“a89-9”, “aa”)
+Blank flight number (“aa-9”, “aa”)
+Over 3-digit flight number (“aa8989-9”, “aa”)
+Zeros before flight number (“aa00089-9”, “aa”)
+Flight number of 0 (“aa0-9”, “aa”)
+Missing ‘+’ or ‘-‘ (“aa8999”, “aa”)
+Extra random characters (“aa89+&9”, “aa”)
+Replace ‘+’ or ‘-‘ (“aa89%9”, “aa”)
+Spaces (“aa89 +9”, “aa”)
+Blank minutes (“aa98-“, “aa”)
+Over 3-digit minutes (“aa89-9890”, “aa”)
+Zeros before minutes (“aa89-00009”, “aa”)
+0 minutes (“aa89-0”, “aa”)
+Multiple airline codes (“aa89-9dl90+18”, “aa”)
+Airline code not found in command (“aa89-9dl90+18”, “sw”)
+Invalid airline code in command (“aa89-9”, “gg")
+Extra character in airline code in command (“aa89-9”, “aaa”)
+Missing character in airline code in command (“aa89-9”, “a”)
+Correct function that should output 0.5 (“aa89-9aa79+15”, “aa”)
+Correct function that should output 1.0 (“aa89-9aa79+14”, “aa”)
+Correct function that should output 0.0 (“aa89+890aa79+15”, “aa”)
