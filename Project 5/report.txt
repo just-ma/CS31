@@ -1,5 +1,5 @@
 Justin Ma
-604805167
+
 
 This project was one of the more difficult ones because I had to learn a lot of new syntax. I was unfamiliar with classes, so I had to learn what a class was, how to define it, and how to define the functions within it. I also had to learn the difference between .h files and .cpp files. For example, my code would not compile even though there was no error line within my code. Eventually, I realized it was due to #include “Date.cpp” and #include “ZodiacReader.cpp”. This defined the classes and functions multiples times. To fix this, I included the header files instead. Overall, the most notable obstacles dealt with syntax.
 
