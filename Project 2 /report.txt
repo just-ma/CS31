@@ -1,5 +1,4 @@
 Justin Ma
-604805167
 
 a)
 	The first problem I encountered was not being able to include spaces into strings with cin. The input only includes characters up until a space or new line. Thus, when entering one’s name, it would only receive the first name. To resolve this, I used the getline() function which takes everything up until a new line.
