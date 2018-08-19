@@ -1,5 +1,5 @@
 Justin Ma
-604805167
+
 
 	The most notable obstacle I overcame was the unionWithNoDuplicates function. Solving the problem was mostly conceptual. At first I tried to eliminate duplicates in an array, but that was very difficult, so I changed my strategy to copying a string into the resulting array one at a time. each time, I would check if that string was already in the resulting array or not. Once I figured out in my head how a function could complete the task logically, writing the function was not too bad. I had to learn about going through strings in an array one at a time, but this was very similar to going through the characters of a string one at a time. I learned that I could not cout an array. Instead I had to cout every string inside it, one at a time. I also learned I could not create an array with a variable size. 
 
