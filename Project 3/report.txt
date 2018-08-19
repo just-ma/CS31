@@ -1,5 +1,4 @@
 Justin Ma
-604805167
 
 The length of each individual string varies depending on the airline number and minutes. This meant I needed variables that measured these lengths which was a difficult task. The whole onTimeArrivalPercentage function had to be a loop that looped through each individual string. I learned that I needed a variable that increased with each loop. I didn't have much experience with making loops, so I had to master that skill when completing this project. One specific obstacle was converting characters to integers. When trying to figure out whether a flight is late or not, I needed to know if the minutes were greater than 14 minutes or not. This problem was solved in discussion when my TA told us to subtract the character by ‘0’. Another obstacle was detecting the small bugs I wouldn't notice the first time through. Things like if the string was missing a ‘-‘ or ‘+’, or missing a minutes value. There were a lot of rules in the validity of the code which made the number of possible holes much larger.
 
