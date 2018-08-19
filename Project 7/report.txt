@@ -1,5 +1,4 @@
 Justin Ma
-604805167
 
 The most difficult part of this project was understanding the skeleton code. We all have different ways for approaching a problem, and my method was different from the code. I had to learn each why each part was where it was and its function. After looking at the code for a while, I got comfortable with it, and the rest was not difficult. One specific obstacle was figuring out why my code printed out “The game is tied” at the very beginning. I realized that the isGameOver function should only be active after the 6th round. Another problem I had was counting up the number of rounds won by the human and computer. I wanted to implement an private integer that would count up each time a round was won; however, I had to go through the array and count that.
 
